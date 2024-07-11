@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
@@ -23,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Auth::viaRequest('threads', function () {
-            return session()->has('threads_token');
+            return session()->has('threads_token') ? User::factory()->make() : null;
         });
 
         Threads::macro('userInsights', function (?array $metric = null): array {
