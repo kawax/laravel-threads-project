@@ -12,7 +12,7 @@ class Posts extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public array $posts)
+    public function __construct(public array $posts = [])
     {
         $this->posts = Threads::token(session('threads_token'))->posts();
     }
