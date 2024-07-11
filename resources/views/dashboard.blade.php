@@ -21,6 +21,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h2>My posts</h2>
 
+                    <x-threads.profiles/>
                     <x-threads.posts/>
                 </div>
             </div>
