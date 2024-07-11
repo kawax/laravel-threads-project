@@ -4,7 +4,7 @@
             @foreach($post as $key => $value)
                 @if(is_string($value))
                     <tr>
-                        <td class="font-bold">{{ $key }}</td>
+                        <td class="font-bold pr-3">{{ $key }}</td>
                         <td>{{ $value }}</td>
                     </tr>
                 @endif
