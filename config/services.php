@@ -38,7 +38,7 @@ return [
     'threads' => [
         'client_id' => env('THREADS_CLIENT_ID'),
         'client_secret' => env('THREADS_CLIENT_SECRET'),
-        'redirect' => env('THREADS_REDIRECT_URL', '/threads/auth'),
+        'redirect' => env('THREADS_REDIRECT_URL', '/threads/callback'),
     ],
 
 ];
