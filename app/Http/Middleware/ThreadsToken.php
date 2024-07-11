@@ -20,7 +20,7 @@ class ThreadsToken
         if (session()->has('threads_token')) {
             return $next($request);
         } else {
-            throw new Exception('Missing Threads token');
+            abort(Response::HTTP_FORBIDDEN);
         }
     }
 }
