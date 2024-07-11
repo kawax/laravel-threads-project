@@ -1,13 +1,16 @@
 <div>
     @forelse($posts as $post)
         <div class="border my-6">
-            <ul>
+            <table class="table-auto">
                 @foreach($post as $key => $value)
                     @if(is_string($value))
-                        <li><span class="font-bold mr-3">{{ $key }}</span><span>{{ $value }}</span></li>
+                        <tr>
+                            <th>{{ $key }}</th>
+                            <td>{{ $value }}</td>
+                        </tr>
                     @endif
                 @endforeach
-            </ul>
+            </table>
         </div>
     @empty
         <div>empty</div>
