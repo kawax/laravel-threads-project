@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\ThreadsToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
@@ -7,11 +8,11 @@ use Revolution\Threads\Facades\Threads;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware([ThreadsToken::class])->name('dashboard');
 
 Route::get('threads/login', function () {
     return Socialite::driver('threads')->redirect();
@@ -19,7 +20,7 @@ Route::get('threads/login', function () {
 
 Route::get('threads/callback', function (Request $request) {
     if ($request->missing('code')) {
-        dd($request);
+        return to_route('welcome');
     }
 
     /** @var \Laravel\Socialite\Two\User $user */
